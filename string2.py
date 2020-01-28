@@ -7,6 +7,7 @@
 # http://code.google.com/edu/languages/google-python-class/
 
 # Additional basic string exercises
+__author__ = "Detrich with help of david"
 
 # D. verbing
 # Given a string, if its length is at least 3,
@@ -18,8 +19,11 @@
 
 
 def verbing(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    if len(s) >= 3:
+        if s[-3:] == "ing":
+            return s + "ly"
+        return s + "ing"
+    return s
 
 
 # E. not_bad
@@ -31,8 +35,11 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-    """Your code goes here.  Edit this docstring."""
-    return
+    notIndex = s.find("not")
+    badIndex = s.find("bad")
+    if notIndex < badIndex:
+        return s[:notIndex] + "good" + s[badIndex+3:]
+    return s
 
 
 # F. front_back
@@ -43,8 +50,8 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    """Your code goes here.  Edit this docstring."""
-    return
+    #length of (a) divided by two rounds down, making it a negative rounds it "up", and then change the negative into a positive using a "-" gives me the indexes i need
+    return a[:-(-len(a)//2)] + b[:-(-len(b)//2)] + a[-(-len(a)//2):] + b[-(-len(b)//2):]
 
 
 # Provided simple test() function used in main() to print
