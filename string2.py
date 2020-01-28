@@ -50,12 +50,21 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    afront = a[:-(-len(a)//2)]
-    bfront = b[:-(-len(b)//2)]
-    aback = a[-(-len(a)//2):]
-    bback = b[-(-len(b)//2):]
-    #length of (a) divided by two rounds down, making it a negative rounds it "up", and then change the negative into a positive using a "-" gives me the indexes i need
-    return afront + bfront+ aback + bback
+    alength = len(a)
+    blength = len(b)
+    if alength % 2 == 0:
+        aindex = alength // 2
+    else:
+        aindex = (alength // 2) + 1
+    if blength % 2 == 0:
+        bindex = blength // 2
+    else:
+        bindex = (blength // 2) + 1
+    afront = a[0:aindex]
+    aback = a[aindex:]
+    bfront = b[0:bindex]
+    bback = b[bindex:]
+    return afront + bfront + aback + bback
 
 
 # Provided simple test() function used in main() to print
