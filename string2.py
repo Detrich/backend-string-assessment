@@ -50,16 +50,14 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-    alength = len(a)
-    blength = len(b)
-    if alength % 2 == 0:
-        aindex = alength // 2
+    if len(a) % 2 == 0:
+        aindex = len(a) // 2
     else:
-        aindex = (alength // 2) + 1
-    if blength % 2 == 0:
-        bindex = blength // 2
+        aindex = (len(a) // 2) + 1
+    if len(b) % 2 == 0:
+        bindex = len(b) // 2
     else:
-        bindex = (blength // 2) + 1
+        bindex = (len(b) // 2) + 1
     afront = a[0:aindex]
     aback = a[aindex:]
     bfront = b[0:bindex]
